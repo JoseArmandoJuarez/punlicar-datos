@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1.text-center.p-4 Ordenes
+    main(role='main')
+            section
+                .container
+                    table.table.text-center
+                        thead.thead-dark
+                            th Ordenes
+                            th Zona
+                            th Fecha
+                        if ordenes
+                            each orden, i in ordenes
+                                tbody
+                                    th 
+                                        a(href='ordenes/datos/#{orden._id}')
+                                            p= orden.orden
+                                    td= orden.zona
+                                    td #{moment(orden.date).format("MM/DD/YYYY")}
+                                    

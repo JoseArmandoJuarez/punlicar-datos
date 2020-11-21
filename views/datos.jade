@@ -1,0 +1,53 @@
+extends layout
+
+block content
+
+    .container.pt-4.mt-4
+        table.table.text-center
+            thead.thead-dark
+                th Orden
+                th Direccion
+                th Zona
+                th Numero de Poste
+                th Delete
+            tbody
+                td 
+                    = orden.orden
+                td 
+                    = orden.direccion
+                td
+                    = orden.zona
+                td
+                    = orden.numerodeposte
+                if admin
+                    td
+                        a.btn.btn-danger(href="/ordenes/datos/#{orden._id}/delete")
+                            | &#10005;
+
+            
+    .container
+        .row
+            .col-md-6
+                .col-md-6
+                    img.postImgLampara(src='/images/#{orden.fotodelampara}')
+                .col.p-6
+                    h3.mb-0 Lampara
+                    p.card-text.mt-4 
+                        b Tipo de Lampara: 
+                        = orden.tipodelampara
+                    p.card-text 
+                        b Codigo de Lampara: 
+                        = orden.codigodelampara
+
+                
+            .col-md-6
+                .col-md-6
+                    img.postImgLampara(src='/images/#{orden.fotodebrazo}')
+                .col.p-6
+                    h3.mb-0 Brazo
+                    p.card-text.mt-4
+                        b Tipo de Brazo: 
+                        = orden.tipodebrazo
+                    p.card-text
+                        b Codigo de Brazo: 
+                        = orden.codigodebrazo

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    .container.mt-5
+        h2.page-header Login
+            hr
+
+            if noUser
+                h3 NO EXISTE EL USUARIO
+
+            form(method='post', action='/login')
+                .form-group
+                    label Usuario *
+                    input.form-control(name='username', type='text')
+                .form-group
+                    label Contraseña *
+                    input.form-control(name='password', type="password")
+                input.btn.btn-primary(type='submit', name='submit', value='Login')
+
+                        

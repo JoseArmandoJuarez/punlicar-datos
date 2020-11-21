@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    h1.text-center.p-4= title
+
+    if errors
+        each error, i in errors
+            div.alert.alert-danger #{error.msg}
+            
+    .container.pb-4.mb-4
+        form(method='post', action='/forma', enctype="multipart/form-data")
+            .form-group
+                label(for='numerodeorder') Numero de orden
+                input#numerodeorder.form-control(name='numorden', type='text')
+            .form-row
+                .form-group.col-md-6
+                    label(for='direccion') Direccion
+                    input#direccion.form-control(name='direccion', type='text')
+                .form-group.col-md-6
+                    label(for='zona') Zona
+                    input#zona.form-control(name='zona', type='text')
+            .form-group
+                label(for='numerodeposte') Numero de poste
+                input#numerodeposte.form-control(name='numposte', type='text', maxlength="10")
+      
+            h2.text-center Items
+            h4 Lamparas
+            .form-group
+                label(for='tipolampara') Tipo de Lampara
+                select#inputState.form-control(name='tipolampara')
+                    option(value='Tipo A') Tipo A
+                    option(value='Tipo B') Tipo B
+                    option(value='Tipo C') Tipo C
+            .form-group
+                label(for='codigolamp') Codigo de lampara
+                input#codigolamp.form-control(name='codigolamp', type='text', maxlength="10")  
+            .form-group
+                label(for='fotoslampara') Foto de lampara
+                input#fotoslampara.form-control(name='fotolamp', type='file')    
+            h4 Brazo
+            .form-group
+                label(for='tipobrazo') Tipo de brazo
+                select#inputState.form-control(name='tipobrazo')
+                    option(value='Tipo A') Tipo A 
+                    option(value='Tipo B') Tipo B
+                    option(value='Tipo C') Tipo C
+            .form-group
+                label(for='codigobrazo') Codigo de Brazo
+                input#codigobrazo.form-control(name='codigobrazo', type='text', maxlength="10")  
+            .form-group
+                label(for='fotosbrazo') Fotos de Brazo
+                input#fotosbrazo.form-control(name='fotobrazo', type='file')
+
+            input.my-4.btn.btn-primary(name='submit', type='submit', value='Registrar')

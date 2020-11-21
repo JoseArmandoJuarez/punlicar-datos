@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  main(role='main')
+    section.jumbotron
+      .container.text-center
+        if admin
+          h1 ADMIN
+          
+        if normal
+          h1 WELCOME
+        p.lead.text-muted
+          | Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
+        p
+          a#button.btn.btn-primary.my-2.mr-2(href='/forma') POST
+        
